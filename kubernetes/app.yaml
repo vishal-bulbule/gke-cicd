@@ -192,7 +192,7 @@ metadata:
       manager: vpa-recommender
       operation: Update
       subresource: status
-      time: '2023-11-20T10:30:02Z'
+      time: '2023-11-20T10:34:03Z'
   name: crick-app-hpa-cl5i
   namespace: default
 spec:
