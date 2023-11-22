@@ -45,4 +45,4 @@ Guide on setting up the application locally:
 ## Demo Video
 
 Check out our demo video on YouTube showcasing the application:
-[![Demo Video]](https://youtu.be/4HJ1D1nh2Yc?si=sQu4VT9B0E2aA0pf)
+[[Demo Video]](https://youtu.be/4HJ1D1nh2Yc?si=sQu4VT9B0E2aA0pf)
