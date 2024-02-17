@@ -19,7 +19,7 @@ steps:
   - -xe
   - -c
   - |
-    gcloud deploy apply --file deploy/pipeline.yaml
+    gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
     gcloud deploy apply --file deploy/dev.yaml
     gcloud deploy releases create my-release --delivery-pipeline=cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
 
