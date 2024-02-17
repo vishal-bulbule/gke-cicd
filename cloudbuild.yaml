@@ -19,7 +19,9 @@ steps:
   - -xe
   - -c
   - |
-    gcloud deploy releases create my-release --delivery-pipeline=demo-bs5ca76 --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
+    gcloud deploy apply --file deploy/pipeline.yaml
+    gcloud deploy apply --file deploy/dev.yaml
+    gcloud deploy releases create my-release --delivery-pipeline=cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
 
 options:
   logging: CLOUD_LOGGING_ONLY
