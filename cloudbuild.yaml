@@ -21,6 +21,8 @@ steps:
   - |
     gcloud deploy releases create my-release --delivery-pipeline=demo-bs5ca76 --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
 
+options:
+  logging: CLOUD_LOGGING_ONLY
 # #gcloud deploy releases create my-release --delivery-pipeline=my-pipeline --region=us-central1 --from-k8s-manifest=path/to/kubernetes/k8.yaml
 
 
