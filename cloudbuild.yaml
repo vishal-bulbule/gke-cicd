@@ -20,7 +20,7 @@ steps:
   - |
     gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
     gcloud deploy apply --file deploy/dev.yaml --region=us-central1
-    gcloud deploy releases create 'my-release-$DATE-$TIME' --delivery-pipeline=cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
+    gcloud deploy releases create 'my-release-$COMMIT_SHA' --delivery-pipeline=cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
 
 options:
   logging: CLOUD_LOGGING_ONLY
