@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image', './app']
+images:
+- 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:tag1'
