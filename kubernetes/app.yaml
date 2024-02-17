@@ -107,7 +107,7 @@ spec:
         app: test
     spec:
       containers:
-      - image: us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image
+      - image: us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA
         imagePullPolicy: IfNotPresent
         name: quickstart-image-sha256-1
         resources: {}
