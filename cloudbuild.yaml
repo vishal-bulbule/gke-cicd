@@ -1,11 +1,15 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image', './app' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
+  id: 'Build Docker Image'
+
   # images:
   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', 'push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image' ]
+  args: ['build', 'push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
+  id: 'Push Docker Image'
+
   # images:
   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
