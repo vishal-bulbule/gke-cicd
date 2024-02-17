@@ -1,17 +1,16 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
-  id: 'Build Docker Image'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
+#   id: 'Build Docker Image'
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+#   # images:
+#   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
-  id: 'Push Docker Image'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
+#   id: 'Push Docker Image'
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+
 
 - name: 'google/cloud-sdk:latest'
   entrypoint: 'sh'
@@ -25,13 +24,3 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-# #gcloud deploy releases create my-release --delivery-pipeline=my-pipeline --region=us-central1 --from-k8s-manifest=path/to/kubernetes/k8.yaml
-
-
-# - name: 'google/cloud-sdk:latest'
-#   entrypoint: 'sh'
-#   args:
-#   - -xe
-#   - -c
-#   - |
-#     gcloud config set deploy/region ${_REGION}
