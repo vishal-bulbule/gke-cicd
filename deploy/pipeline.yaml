@@ -8,8 +8,8 @@ description: cicd delivery pipeline
 serialPipeline:
   stages:
   - targetId: dev
-    profiles:
-    - dev
+    # profiles:
+    # - dev
   # - targetId: staging
   #   profiles:
   #   - staging
