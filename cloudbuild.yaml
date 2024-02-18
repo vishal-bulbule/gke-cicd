@@ -30,7 +30,8 @@ steps:
   - |
     gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
     gcloud deploy apply --file deploy/dev.yaml --region=us-central1
-    gcloud deploy releases create 'my-release-$COMMIT_SHA' --delivery-pipeline=cicd-pipeline-new --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml --from-k8s-manifest=./kubernetes/app2.yaml
+    gcloud deploy releases create 'app1-release-$COMMIT_SHA' --delivery-pipeline=cicd-pipeline-new --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
+    gcloud deploy releases create 'app2-release-$COMMIT_SHA' --delivery-pipeline=cicd-pipeline-new --region=us-central1 --from-k8s-manifest=./kubernetes/app2.yaml 
 
 options:
   logging: CLOUD_LOGGING_ONLY

@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Define a route for the root URL
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return 'Hello, World app 2!'
 
 # Run the Flask application if this file is executed directly
 if __name__ == '__main__':
