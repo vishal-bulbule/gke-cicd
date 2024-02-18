@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: flask-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: flask-app
   template:
     metadata:
       labels:
-        app: my-app
+        app: flask-app
     spec:
       containers:
-        - name: my-container
+        - name: flask-container
           image: us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image
           ports:
             - containerPort: 8081
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: flask-service
 spec:
   selector:
-    app: my-app
+    app: flask-app
   ports:
     - protocol: TCP
       port: 8081

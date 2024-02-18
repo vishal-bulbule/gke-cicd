@@ -1,25 +1,25 @@
 steps:
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
-#   id: 'Build Docker Image'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
+  id: 'Build Docker Image'
 
-#   # images:
-#   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+  # images:
+  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
-#   id: 'Push Docker Image'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
+  id: 'Push Docker Image'
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA', './app2' ]
-#   id: 'Build Docker Image2'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA', './app2' ]
+  id: 'Build Docker Image2'
 
-#   # images:
-#   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+  # images:
+  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA' ]
-#   id: 'Push Docker Image2'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA' ]
+  id: 'Push Docker Image2'
 
 
 - name: 'google/cloud-sdk:latest'
