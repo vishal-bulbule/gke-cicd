@@ -32,8 +32,8 @@ steps:
     gcloud deploy apply --file deploy/dev.yaml --region=us-central1
     gcloud deploy apply --file deploy/prod.yaml --region=us-central1
 
-    gcloud deploy releases create 'app1-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
-    gcloud deploy releases create 'app2-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd --region=us-central1 --from-k8s-manifest=./kubernetes/app2.yaml 
+    gcloud deploy releases create 'app1-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
+    gcloud deploy releases create 'app2-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app2.yaml 
 
 options:
   logging: CLOUD_LOGGING_ONLY
