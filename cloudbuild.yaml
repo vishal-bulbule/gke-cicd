@@ -1,25 +1,25 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
-  id: 'Build Docker Image'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA', './app' ]
+#   id: 'Build Docker Image'
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+#   # images:
+#   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
-  id: 'Push Docker Image'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image:$COMMIT_SHA' ]
+#   id: 'Push Docker Image'
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA', './app2' ]
-  id: 'Build Docker Image2'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA', './app2' ]
+#   id: 'Build Docker Image2'
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+#   # images:
+#   # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA' ]
-  id: 'Push Docker Image2'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image:$COMMIT_SHA' ]
+#   id: 'Push Docker Image2'
 
 
 - name: 'google/cloud-sdk:latest'
@@ -30,7 +30,7 @@ steps:
   - |
     gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
     gcloud deploy apply --file deploy/dev.yaml --region=us-central1
-    gcloud deploy releases create 'my-release-$COMMIT_SHA' --delivery-pipeline=cicd-pipeline-new --region=us-central1 --from-k8s-manifest=./kubernetes/*
+    gcloud deploy releases create 'my-release-$COMMIT_SHA' --delivery-pipeline=cicd-pipeline-new --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml --from-k8s-manifest=./kubernetes/app2.yaml
 
 options:
   logging: CLOUD_LOGGING_ONLY
