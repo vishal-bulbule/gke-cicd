@@ -1,0 +1,11 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prod
+  annotations: {}
+  labels: {}
+description: prod
+requireApproval: true
+gke:
+  cluster: projects/prj-poc-001/locations/us-central1-c/clusters/cluster-2
+
