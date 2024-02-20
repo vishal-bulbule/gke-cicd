@@ -1,24 +1,24 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image', './app1' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image', './app1' ]
   id: 'Build Docker Image'
 
   # images:
-  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+  # - 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image' ]
+  args: ['push', 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image' ]
   id: 'Push Docker Image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image', './app2' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/flask-image', './app2' ]
   id: 'Build Docker Image2'
 
   # images:
-  # - 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/quickstart-image'
+  # - 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/prj-poc-001/gke-repo/flask-image' ]
+  args: ['push', 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/flask-image' ]
   id: 'Push Docker Image2'
 
 
@@ -35,7 +35,3 @@ steps:
 
 options:
   logging: CLOUD_LOGGING_ONLY
-# gcloud deploy apply --file deploy/prod.yaml --region=us-central1
-
-# gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app.yaml
-# gcloud deploy releases create 'app2-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --from-k8s-manifest=./kubernetes/app2.yaml 
